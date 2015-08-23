@@ -22,16 +22,28 @@ void quickSort(vector<int>& nums, int left, int right){
 	return;
 }
 
+bool exists(vector<vector<int> > ans, vector<int> temp){
+    	for(int i=0;i<ans.size();i++){
+    		for(int j=0;j<ans[i].size();j++){
+    			if(ans[i][j]!=temp[j]){
+    				break;
+    			}
+    			if(j==ans[i].size()-1) return true;
+    		}
+    	}
+    	return false;
+}
+
 void dfs(vector<int>& candidates, vector<vector<int> >& ans, vector<int>& tmp, int target, int i){
 	if(target<0) return;
 	if(target==0){
-		ans.push_back(tmp);
+		if(!exists(ans,tmp)) ans.push_back(tmp);
 		return;
 	} else {
 		while(i<candidates.size()){
 			tmp.push_back(candidates[i]);
-			dfs(candidates, ans, tmp, target-candidates[i], i);
 			i++;
+			dfs(candidates, ans, tmp, target-candidates[i-1], i);
 			tmp.pop_back();
 		}
 	}
@@ -48,9 +60,9 @@ vector<vector<int> > combinationSum(vector<int>& candidates, int target) {
 } 
 
 int main(){
-	int arr[] = {1,2,3,4,5,6,7};
+	int arr[] = {1,1};
 	vector<int> nums(arr, arr+sizeof(arr)/sizeof(int));
-	vector<vector<int> > ans = combinationSum(nums, 12);
+	vector<vector<int> > ans = combinationSum(nums, 1);
 	for(int i=0;i<ans.size();i++){
 		for(int j=0;j<ans[i].size();j++){
 			cout << ans[i][j] << " ";
