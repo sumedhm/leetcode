@@ -27,7 +27,7 @@ int jump(vector<int>& nums){
 }
 
 int main(){
-	int arr[] = {2,3,1,1,4};
+	int arr[] = {2,3,4,8,1,1,1,1,1,1,1,1};
 	vector<int> nums(arr, arr+sizeof(arr)/sizeof(int));
 	cout << jump(nums) << endl;
 	return 0;

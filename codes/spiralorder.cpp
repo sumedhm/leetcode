@@ -5,6 +5,7 @@ using namespace std;
 
 vector<int> spiralOrder(vector<vector<int> >& matrix) {
         vector<int> ans;
+        if(matrix.size()==0) return ans;
         bool right = true, left = false, up = false, down = false;
         int n = matrix.size(), m = matrix[0].size();
         int i=0, j=0, i_min=-1,i_max=n,j_min=-1,j_max=m,k=0;
