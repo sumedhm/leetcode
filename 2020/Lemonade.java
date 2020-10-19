@@ -1,4 +1,11 @@
 //https://leetcode.com/problems/lemonade-change/
+
+/**
+ * Runtime: 1 ms, faster than 100% of Java online submissions for Lemonade Change.
+ * Memory Usage: 40.1 MB, less than 5.04% of Java online submissions for Lemonade Change.
+ */
+
+
 class Lemonade {
     public boolean lemonadeChange(int[] bills) {
         int dollar5 = 0;
